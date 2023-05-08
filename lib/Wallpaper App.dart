@@ -5,6 +5,7 @@ import 'package:crud_pract_2nd_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as https;
+import 'package:lottie/lottie.dart';
 
 class MyWallpaperApp extends StatefulWidget {
   const MyWallpaperApp({Key? key}) : super(key: key);
@@ -133,7 +134,7 @@ class _MyWallpaperAppState extends State<MyWallpaperApp> {
                 Expanded(
                     child: Container(
                         alignment: Alignment.center,
-                        child: CircularProgressIndicator()))
+                        child: Lottie.asset("assets/lotties/loading.json")))
               else
                 Expanded(
                   child: Container(
