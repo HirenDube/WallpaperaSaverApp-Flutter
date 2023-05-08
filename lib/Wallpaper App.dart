@@ -86,7 +86,10 @@ class _MyWallpaperAppState extends State<MyWallpaperApp> {
               ),
             ),
           ),
-          Expanded(
+          if(imageData.isEmpty)
+            Expanded(child: Container(alignment:Alignment.center,child: CircularProgressIndicator()))
+          else
+            Expanded(
             child: Container(
               child: GridView.builder(
                   itemCount: imageData.length,
