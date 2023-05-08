@@ -126,10 +126,8 @@ class _MyWallpaperAppState extends State<MyWallpaperApp> {
                   ])
         ],
       ),
-      body: Column(
+      body: Stack(
         children: [
-          Stack(
-            children: [
               if (imageData.isEmpty)
                 Expanded(
                     child: Container(
@@ -207,8 +205,6 @@ class _MyWallpaperAppState extends State<MyWallpaperApp> {
                   ),
                 ],
               )
-            ],
-          ),
         ],
       ),
     );
