@@ -1,7 +1,8 @@
 import 'package:crud_pract_2nd_app/main.dart';
-import 'package:gallery_saver/gallery_saver.dart';
 import 'package:flutter/material.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
 class SetWallpaper extends StatefulWidget {
   String imageUrl, tag;
@@ -55,14 +56,23 @@ class _SetWallpaperState extends State<SetWallpaper> {
                                 onPressed: () async {
                                   await GallerySaver.saveImage(widget.imageUrl,
                                       albumName: "My Custom Wallpapers");
+                                  
                                   ScaffoldMessenger.of(context)
                                     ..hideCurrentSnackBar()
-                                    ..showSnackBar(SnackBar(elevation: 10,backgroundColor: Colors.white,
-                                        behavior: SnackBarBehavior.floating,shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(50)
-                                        ),dismissDirection: DismissDirection.horizontal,
+                                    ..showSnackBar(SnackBar(
+                                        elevation: 10,
+                                        backgroundColor: Colors.white,
+                                        behavior: SnackBarBehavior.floating,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(50)),
+                                        dismissDirection:
+                                            DismissDirection.horizontal,
                                         content: Text(
-                                            "Wallpaper saved successfully...",style: GoogleFonts.alice(color: Colors.black),)));
+                                          "Wallpaper saved successfully...",
+                                          style: GoogleFonts.alice(
+                                              color: Colors.black),
+                                        )));
 
                                   Navigator.pop(context);
                                 },
