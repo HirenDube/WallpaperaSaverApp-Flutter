@@ -14,7 +14,8 @@ class MyWallpaperApp extends StatefulWidget {
 }
 
 class _MyWallpaperAppState extends State<MyWallpaperApp> {
-  String pixelsAPIKey = "cKLXs3wd22ttfeHO8Mc0nIflsOKaaA4lKGyMj8rw6Em2UtYZ6QZpaW1w";
+  String pixelsAPIKey =
+      "cKLXs3wd22ttfeHO8Mc0nIflsOKaaA4lKGyMj8rw6Em2UtYZ6QZpaW1w";
   List imageData = [];
   int page = 1;
   int gridCount = 3;
@@ -66,71 +67,68 @@ class _MyWallpaperAppState extends State<MyWallpaperApp> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.black,
-      appBar:
-      buildAppBar(
+      appBar: buildAppBar(
         shadowColor: Colors.black,
-          title: "My Wallpaper App",
-          bgColor: Colors.deepPurpleAccent,
-          actions: [
-            PopupMenuButton(
-                icon: Icon(Icons.grid_view_rounded),
-                itemBuilder: (context) => [
-                      PopupMenuItem(
-                        child: Text("1"),
-                        onTap: () {
-                          setState(() {
-                            gridCount = 1;
-                          });
-                        },
-                      ),
-                      PopupMenuItem(
-                        child: Text("2"),
-                        onTap: () {
-                          setState(() {
-                            gridCount = 2;
-                          });
-                        },
-                      ),
-                      PopupMenuItem(
-                        child: Text("3"),
-                        onTap: () {
-                          setState(() {
-                            gridCount = 3;
-                          });
-                        },
-                      ),
-                      PopupMenuItem(
-                        child: Text("4"),
-                        onTap: () {
-                          setState(() {
-                            gridCount = 4;
-                          });
-                        },
-                      ),
-                      PopupMenuItem(
-                        child: Text("5"),
-                        onTap: () {
-                          setState(() {
-                            gridCount = 5;
-                          });
-                        },
-                      ),
-                      PopupMenuItem(
-                        child: Text("6"),
-                        onTap: () {
-                          setState(() {
-                            gridCount = 6;
-                          });
-                        },
-                      ),
-                    ]
-                      )
-          ], ),
-
-      body: CustomScrollView(
-        slivers: [
-
-          SliverFillRemaining(child: Stack(
+        title: "My Wallpaper App",
+        bgColor: Colors.deepPurpleAccent,
+        actions: [
+          PopupMenuButton(
+              icon: Icon(Icons.grid_view_rounded),
+              itemBuilder: (context) => [
+                    PopupMenuItem(
+                      child: Text("1"),
+                      onTap: () {
+                        setState(() {
+                          gridCount = 1;
+                        });
+                      },
+                    ),
+                    PopupMenuItem(
+                      child: Text("2"),
+                      onTap: () {
+                        setState(() {
+                          gridCount = 2;
+                        });
+                      },
+                    ),
+                    PopupMenuItem(
+                      child: Text("3"),
+                      onTap: () {
+                        setState(() {
+                          gridCount = 3;
+                        });
+                      },
+                    ),
+                    PopupMenuItem(
+                      child: Text("4"),
+                      onTap: () {
+                        setState(() {
+                          gridCount = 4;
+                        });
+                      },
+                    ),
+                    PopupMenuItem(
+                      child: Text("5"),
+                      onTap: () {
+                        setState(() {
+                          gridCount = 5;
+                        });
+                      },
+                    ),
+                    PopupMenuItem(
+                      child: Text("6"),
+                      onTap: () {
+                        setState(() {
+                          gridCount = 6;
+                        });
+                      },
+                    ),
+                  ])
+        ],
+      ),
+      body: Column(
+        children: [
+          Stack(
             children: [
               if (imageData.isEmpty)
                 Expanded(
@@ -149,25 +147,25 @@ class _MyWallpaperAppState extends State<MyWallpaperApp> {
                           childAspectRatio: 2 / 3,
                         ),
                         itemBuilder: (context, index) => InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => SetWallpaper(
-                                    imageUrl:
-                                    "${imageData[index]["src"]["large2x"]}",
-                                    tag: "wallpaper[$index]")));
-                          },
-                          child: Container(
-                            color: Colors.grey,
-                            child: Hero(
-                              transitionOnUserGestures: true,
-                              tag: "wallpaper[$index]",
-                              child: Image.network(
-                                "${imageData[index]["src"]["tiny"]}",
-                                fit: BoxFit.cover,
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => SetWallpaper(
+                                        imageUrl:
+                                            "${imageData[index]["src"]["large2x"]}",
+                                        tag: "wallpaper[$index]")));
+                              },
+                              child: Container(
+                                color: Colors.grey,
+                                child: Hero(
+                                  transitionOnUserGestures: true,
+                                  tag: "wallpaper[$index]",
+                                  child: Image.network(
+                                    "${imageData[index]["src"]["tiny"]}",
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        )),
+                            )),
                   ),
                 ),
               Column(
@@ -210,11 +208,9 @@ class _MyWallpaperAppState extends State<MyWallpaperApp> {
                 ],
               )
             ],
-          ),),
+          ),
         ],
       ),
     );
   }
 }
-
-
