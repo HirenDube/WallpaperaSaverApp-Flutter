@@ -14,6 +14,7 @@ class MyWallpaperApp extends StatefulWidget {
 }
 
 class _MyWallpaperAppState extends State<MyWallpaperApp> {
+  String confirmationMesej = "Commited and pushed to main brance successfully";
   String pixelsApiKey =
       "cKLXs3wd22ttfeHO8Mc0nIflsOKaaA4lKGyMj8rw6Em2UtYZ6QZpaW1w";
   List imageData = [];
